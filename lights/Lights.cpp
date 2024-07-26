@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.lights-service.nairo"
+#define LOG_TAG "android.hardware.lights-service.astro"
 
 #include "Lights.h"
 #include <android-base/file.h>

@@ -1,4 +1,4 @@
-service vendor.light /vendor/bin/hw/android.hardware.lights-service.nairo
+service vendor.light /vendor/bin/hw/android.hardware.lights-service.astro
     class hal
     user system
     group system

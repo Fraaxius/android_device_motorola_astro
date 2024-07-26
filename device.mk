@@ -14,10 +14,10 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/motorola/sm7250-common/common.mk)
+$(call inherit-product, device/motorola/sdm710-common/common.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/motorola/nairo/nairo-vendor.mk)
+$(call inherit-product, vendor/motorola/astro/astro-vendor.mk)
 
 # Properties
 -include $(LOCAL_PATH)/properties.mk
@@ -75,7 +75,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.nairo
+    android.hardware.lights-service.astro
 
 # NFC
 PRODUCT_COPY_FILES += \

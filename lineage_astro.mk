@@ -18,30 +18,31 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from nairo device
-$(call inherit-product, device/motorola/nairo/device.mk)
+# Inherit from astro device
+$(call inherit-product, device/motorola/astro/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_nairo
-PRODUCT_DEVICE := nairo
+PRODUCT_NAME := lineage_astro
+PRODUCT_DEVICE := astro
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := Moto G 5G Plus
+PRODUCT_MODEL := motorola one fusion
 PRODUCT_MANUFACTURER := motorola
 
-PRODUCT_AAPT_CONFIG := xxxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := 560dpi
+PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2520
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1600
+TARGET_SCREEN_WIDTH := 720
 
 # Build info
-BUILD_FINGERPRINT := "motorola/nairo_retail/nairo:11/RPN31.Q4U-39-27-5/20ead:user/release-keys"
+BUILD_FINGERPRINT := "motorola/astro_retail/astro:11/RPLS31.Q2-63-10-2-9/c6698:user/release-keys"
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=nairo_retail \
-    PRIVATE_BUILD_DESC="nairo_retail-user 11 RPN31.Q4U-39-27-5 20ead release-keys"
+    PRODUCT_NAME=astro_retail \
+    PRIVATE_BUILD_DESC="astro_retail-user 11 RPLS31.Q2-63-10-2-9 c6698 release-keys"
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola

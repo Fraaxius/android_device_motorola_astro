@@ -14,10 +14,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.lights-service.nairo",
+    name: "android.hardware.lights-service.astro",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.lights.nairo.rc"],
-    vintf_fragments: ["android.hardware.lights.nairo.xml"],
+    init_rc: ["android.hardware.lights.astro.rc"],
+    vintf_fragments: ["android.hardware.lights.astro.xml"],
     vendor: true,
     shared_libs: [
         "libbase",

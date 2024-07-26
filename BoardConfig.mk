@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
--include device/motorola/sm7250-common/BoardConfigCommon.mk
+-include device/motorola/sdm710-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/motorola/nairo
+DEVICE_PATH := device/motorola/astro
 
 # Display
 TARGET_SCREEN_DENSITY := 420
@@ -28,31 +28,36 @@ BOARD_HAS_QCA_FM_SOC := "cherokee"
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
-# Init
-SOONG_CONFIG_NAMESPACES += MOTOROLA_LITO_INIT
-SOONG_CONFIG_MOTOROLA_LITO_INIT := DEVICE_LIB
-SOONG_CONFIG_MOTOROLA_LITO_INIT_DEVICE_LIB := //$(DEVICE_PATH):libinit_nairo
-
 # Kernel
-TARGET_KERNEL_CONFIG := vendor/nairo_defconfig
-TARGET_KERNEL_ADDITIONAL_FLAGS += \
-    DTC_PREBUILT=true \
-    DTC=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc \
-    DTC_OVERLAY_TEST_EXT=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/libufdt/ufdt_apply_overlay \
-    MKDTIMG=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/libufdt/mkdtimg
+TARGET_KERNEL_CONFIG := vendor/astro_defconfig
 
 # Partitions
-BOARD_DTBOIMG_PARTITION_SIZE := 4194304
+BOARD_FLASH_BLOCK_SIZE := 262144
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+ifneq ($(WITH_GMS),true)
+BOARD_PRODUCTIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 1258291200
+BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1258291200
+endif
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_MOTOROLA_DYNAMIC_PARTITIONS_PARTITION_LIST := product system vendor
+BOARD_MOTOROLA_DYNAMIC_PARTITIONS_SIZE := 9122611200
+BOARD_SUPER_PARTITION_SIZE := 9126805504
+BOARD_SUPER_PARTITION_GROUPS := motorola_dynamic_partitions
+TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_VENDOR := vendor
 
 # ODM
 ODM_MANIFEST_SKUS := \
-    dn \
-    f \
-    n
+    b \
+    f
 
-ODM_MANIFEST_DN_FILES := $(DEVICE_PATH)/odm/manifest_dn.xml
+ODM_MANIFEST_B_FILES := $(DEVICE_PATH)/odm/manifest_b.xml
 ODM_MANIFEST_F_FILES := $(DEVICE_PATH)/odm/manifest_f.xml
-ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/odm/manifest_n.xml
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
