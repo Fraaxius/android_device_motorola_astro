@@ -65,7 +65,7 @@ PRODUCT_PACKAGES += \
     init.oem.fingerprint.sh \
     init.oem.fingerprint2.sh \
     init.mmi.overlay.rc \
-    init.recovery.lkm.rc
+    init.recovery.qcom.rc
 
 # Lights
 PRODUCT_PACKAGES += \
