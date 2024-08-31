@@ -59,9 +59,9 @@ on boot
    write /sys/class/leds/vibrator/gain 20
 
     # Change permission for fingerprint sensor
-    chown system vendor_tcmd /sys/devices/platform/soc/0.fpc_fpc1020/dev_enable
-    chown system vendor_tcmd /sys/devices/platform/soc/0.fpc_fpc1020/irq
-    chown system vendor_tcmd /sys/devices/platform/soc/0.fpc_fpc1020/irq_cnt
+    chown system vendor_mot_tcmd /sys/devices/platform/soc/0.fpc_fpc1020/dev_enable
+    chown system vendor_mot_tcmd /sys/devices/platform/soc/0.fpc_fpc1020/irq
+    chown system vendor_mot_tcmd /sys/devices/platform/soc/0.fpc_fpc1020/irq_cnt
     chmod 0440 /sys/devices/platform/soc/0.fpc_fpc1020/irq_cnt
 
     chmod 0777 /proc/android_touch/debug
